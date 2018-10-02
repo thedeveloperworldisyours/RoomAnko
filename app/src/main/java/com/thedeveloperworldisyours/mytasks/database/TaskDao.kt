@@ -10,7 +10,7 @@ interface TaskDao {
     @Insert
     fun addTask(taskEntity : TaskEntity):Long
 
-    @Query("SELECT * FROM task_entity where id like :arg0")
+    @Query("SELECT * FROM task_entity WHERE id = :id")
     fun getTaskById(id: Long): TaskEntity
 
     @Delete
