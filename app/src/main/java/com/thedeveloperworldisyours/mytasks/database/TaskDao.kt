@@ -1,22 +1,25 @@
 package com.thedeveloperworldisyours.mytasks.database
 
 import android.arch.persistence.room.*
+import android.arch.persistence.room.OnConflictStrategy.REPLACE
 
 @Dao
 interface TaskDao {
-    @Query("SELECT * FROM task_entity")
-    fun getAllTasks(): MutableList<TaskEntity>
 
-    @Insert
-    fun addTask(taskEntity : TaskEntity):Long
+    @Query("select * from task")
+    fun getAllTasks(): MutableList<Task>
 
-    @Query("SELECT * FROM task_entity WHERE id = :id")
-    fun getTaskById(id: Long): TaskEntity
+    @Query("select * from task where id = :id")
+    fun findTaskById(id: Long): Task
+
+    @Insert(onConflict = REPLACE)
+    fun insertTask(task: Task)
+
+    @Update(onConflict = REPLACE)
+    fun updateTask(task: Task)
 
     @Delete
-    fun deleteTask(taskEntity: TaskEntity):Int
+    fun deleteTask(task: Task)
 
-    @Update
-    fun updateTask(taskEntity: TaskEntity):Int
 
 }

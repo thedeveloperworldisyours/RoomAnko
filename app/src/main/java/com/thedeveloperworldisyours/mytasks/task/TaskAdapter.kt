@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import com.thedeveloperworldisyours.mytasks.R
-import com.thedeveloperworldisyours.mytasks.database.TaskEntity
+import com.thedeveloperworldisyours.mytasks.database.Task
 
 class TaskAdapter(
-        val tasks: List<TaskEntity>,
-        val checkTask: (TaskEntity) -> Unit,
-        val deleteTask: (TaskEntity) -> Unit) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
+        val tasks: List<Task>,
+        val checkTask: (Task) -> Unit,
+        val deleteTask: (Task) -> Unit) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = tasks[position]
@@ -32,9 +32,9 @@ class TaskAdapter(
         val tvTask = view.findViewById<TextView>(R.id.tvTask)
         val cbIsDone = view.findViewById<CheckBox>(R.id.cbIsDone)
 
-        fun bind(task: TaskEntity, checkTask: (TaskEntity) -> Unit, deleteTask: (TaskEntity) -> Unit) {
-            tvTask.text = task.name
-            cbIsDone.isChecked = task.isDone
+        fun bind(task: Task, checkTask: (Task) -> Unit, deleteTask: (Task) -> Unit) {
+            tvTask.text = task.description
+            cbIsDone.isChecked = task.completed
             cbIsDone.setOnClickListener{checkTask(task)}
             itemView.setOnClickListener { deleteTask(task) }
         }

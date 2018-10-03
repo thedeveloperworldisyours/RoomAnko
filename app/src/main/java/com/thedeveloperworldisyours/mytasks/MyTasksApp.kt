@@ -2,16 +2,16 @@ package com.thedeveloperworldisyours.mytasks
 
 import android.app.Application
 import android.arch.persistence.room.Room
-import com.thedeveloperworldisyours.mytasks.database.TasksDatabase
+import com.thedeveloperworldisyours.mytasks.database.AppDatabase
 
 class MyTasksApp: Application() {
 
     companion object {
-        lateinit var database: TasksDatabase
+        lateinit var database: AppDatabase
     }
 
     override fun onCreate() {
         super.onCreate()
-        database =  Room.databaseBuilder(this, TasksDatabase::class.java, "tasks-db").build()
+        database =  Room.databaseBuilder(this, AppDatabase::class.java, "tasks-db").build()
     }
 }
