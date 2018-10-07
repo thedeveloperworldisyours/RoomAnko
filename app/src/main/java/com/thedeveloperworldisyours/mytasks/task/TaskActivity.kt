@@ -49,8 +49,8 @@ class TaskActivity : AppCompatActivity() {
 
     fun addTask(task: Task){
         doAsync {
-            MyTasksApp.database.taskDao().insertTask(task)
-            val recoveryTask = MyTasksApp.database.taskDao().findTaskById(task.id)
+            val idTask = MyTasksApp.database.taskDao().insertTask(task)
+            val recoveryTask = MyTasksApp.database.taskDao().findTaskById(idTask)
             uiThread {
                 tasks.add(recoveryTask)
                 adapter.notifyItemInserted(tasks.size)
@@ -83,7 +83,7 @@ class TaskActivity : AppCompatActivity() {
         adapter = TaskAdapter(tasks, { updateTask(it) }, {deleteTask(it)})
         recyclerView = findViewById(R.id.rvTask)
         recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
         recyclerView.adapter = adapter
     }
 }
