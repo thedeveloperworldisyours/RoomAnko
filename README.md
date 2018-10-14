@@ -3,6 +3,10 @@
  **[Room](https://developer.android.com/topic/libraries/architecture/room)** with
 **[Anko](https://github.com/Kotlin/anko)** example Android
 
+<p align="center">
+ <img src="https://github.com/thedeveloperworldisyours/RoomAnkoMVP/blob/master/myTasksgif.gif" width="300px" />
+</p>
+
 Also visit my blog: **[The developer world is yours](http://thedeveloperworldisyours.com/)**
 
 <a href="http://thedeveloperworldisyours.com/">
