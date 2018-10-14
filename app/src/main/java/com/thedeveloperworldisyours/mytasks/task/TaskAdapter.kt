@@ -8,6 +8,7 @@ import android.widget.CheckBox
 import android.widget.TextView
 import com.thedeveloperworldisyours.mytasks.R
 import com.thedeveloperworldisyours.mytasks.database.Task
+import kotlinx.android.synthetic.main.item_task.view.*
 
 class TaskAdapter(
         val tasks: List<Task>,
@@ -29,13 +30,11 @@ class TaskAdapter(
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvTask = view.findViewById<TextView>(R.id.tvTask)
-        val cbIsDone = view.findViewById<CheckBox>(R.id.cbIsDone)
 
         fun bind(task: Task, checkTask: (Task) -> Unit, deleteTask: (Task) -> Unit) {
-            tvTask.text = task.description
-            cbIsDone.isChecked = task.completed
-            cbIsDone.setOnClickListener{checkTask(task)}
+            itemView.tvTask.text = task.description
+            itemView.cbIsDone.isChecked = task.completed
+            itemView.cbIsDone.setOnClickListener{checkTask(task)}
             itemView.setOnClickListener { deleteTask(task) }
         }
     }

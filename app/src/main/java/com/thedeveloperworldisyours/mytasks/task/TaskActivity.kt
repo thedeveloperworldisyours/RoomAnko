@@ -81,9 +81,8 @@ class TaskActivity : AppCompatActivity() {
 
     fun setUpRecyclerView(tasks: List<Task>) {
         adapter = TaskAdapter(tasks, { updateTask(it) }, {deleteTask(it)})
-        recyclerView = findViewById(R.id.rvTask)
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
-        recyclerView.adapter = adapter
+        task_recyclerView.setHasFixedSize(true)
+        task_recyclerView.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
+        task_recyclerView.adapter = adapter
     }
 }
