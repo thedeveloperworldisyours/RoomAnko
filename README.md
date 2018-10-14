@@ -1,7 +1,7 @@
 # RoomAnko
 
  **[Room](https://developer.android.com/topic/libraries/architecture/room)** with
-**[Anko](https://github.com/Kotlin/anko)** example Android
+**[Anko](https://github.com/Kotlin/anko)** example Android with **[kotlin-android-extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html)
 
 <p align="center">
  <img src="https://github.com/thedeveloperworldisyours/RoomAnkoMVP/blob/master/myTasksgif.gif" width="300px" />
