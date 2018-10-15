@@ -4,11 +4,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
-import android.widget.TextView
 import com.thedeveloperworldisyours.mytasks.R
 import com.thedeveloperworldisyours.mytasks.database.Task
-import kotlinx.android.synthetic.main.item_task.view.*
+import kotlinx.android.synthetic.main.task_item.view.*
 
 class TaskAdapter(
         val tasks: List<Task>,
@@ -22,7 +20,7 @@ class TaskAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return ViewHolder(layoutInflater.inflate(R.layout.item_task, parent, false))
+        return ViewHolder(layoutInflater.inflate(R.layout.task_item, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -31,11 +29,11 @@ class TaskAdapter(
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        fun bind(task: Task, checkTask: (Task) -> Unit, deleteTask: (Task) -> Unit) {
-            itemView.tvTask.text = task.description
-            itemView.cbIsDone.isChecked = task.completed
-            itemView.cbIsDone.setOnClickListener{checkTask(task)}
-            itemView.setOnClickListener { deleteTask(task) }
+        fun bind(task: Task, checkTask: (Task) -> Unit, deleteTask: (Task) -> Unit) = with(itemView){
+            task_item_textView.text = task.description
+            task_item_done_checkBox.isChecked = task.completed
+            task_item_done_checkBox.setOnClickListener{checkTask(task)}
+            setOnClickListener { deleteTask(task) }
         }
     }
 }

@@ -8,7 +8,7 @@
     android:background="@android:color/white">
 
     <CheckBox
-        android:id="@+id/cbIsDone"
+        android:id="@+id/task_item_done_checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -18,13 +18,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvTask"
+        android:id="@+id/task_item_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cbIsDone"
+        app:layout_constraintStart_toEndOf="@+id/task_item_done_checkBox"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Test" />
 

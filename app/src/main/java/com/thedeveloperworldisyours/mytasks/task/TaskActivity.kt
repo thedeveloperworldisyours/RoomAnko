@@ -10,27 +10,26 @@ import android.view.inputmethod.InputMethodManager
 import com.thedeveloperworldisyours.mytasks.MyTasksApp
 import com.thedeveloperworldisyours.mytasks.R
 import com.thedeveloperworldisyours.mytasks.database.Task
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.task_activity.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
 class TaskActivity : AppCompatActivity() {
 
-    lateinit var recyclerView: RecyclerView
     lateinit var adapter: TaskAdapter
     lateinit var tasks: MutableList<Task>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.task_activity)
         tasks = ArrayList()
         getTasks()
-        btnAddTask.setOnClickListener {
-            addTask(Task(description = etTask.text.toString()))}
+        task_button.setOnClickListener {
+            addTask(Task(description = task_editText.text.toString()))}
     }
 
     fun clearFocus(){
-        etTask.setText("")
+        task_editText.setText("")
     }
 
     fun Context.hideKeyboard() {
